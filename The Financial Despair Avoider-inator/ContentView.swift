@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    var expenses: [Expense] = []
     var body: some View {
         VStack {
             Image(systemName: "globe")
