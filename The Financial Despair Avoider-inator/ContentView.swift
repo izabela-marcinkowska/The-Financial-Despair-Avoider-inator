@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var expenses = Expenses().expenses
     var body: some View {
+        NavigationStack {
+            
             List {
                 ForEach (expenses) { expense in
                     HStack {
@@ -25,6 +27,15 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationTitle("My Expenses")
+            .toolbar {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
     }
 }
 
