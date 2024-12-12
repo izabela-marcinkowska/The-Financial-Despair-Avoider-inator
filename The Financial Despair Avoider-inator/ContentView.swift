@@ -10,12 +10,21 @@ import SwiftUI
 struct ContentView: View {
     var expenses = Expenses().expenses
     var body: some View {
-        VStack {
-            List(expenses) {
-                Text($0.name)
+            List {
+                ForEach (expenses) { expense in
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text(expense.name)
+                                .font(.headline)
+                            Text(expense.description)
+                        }
+                        Spacer()
+                        VStack(alignment: .leading) {
+                            Text(expense.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        }
+                    }
+                }
             }
-        }
-        .padding()
     }
 }
 
