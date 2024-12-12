@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    var expenses: [Expense] = []
+    var expenses = Expenses().expenses
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List(expenses) {
+                Text($0.name)
+            }
         }
         .padding()
     }
